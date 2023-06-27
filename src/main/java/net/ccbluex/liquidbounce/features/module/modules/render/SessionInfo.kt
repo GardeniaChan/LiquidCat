@@ -42,7 +42,7 @@ class SessionInfo : Module() {
     private fun onRender2D(event: Render2DEvent){
         pushMatrix()
         if(blurValue.get()) {
-            BlurUtils.blurArea(xValue.get(),yValue.get()+10F, xValue.get()+120F, yValue.get()+75F, 20F)}
+        BlurUtils.blurArea(xValue.get(),yValue.get()+10F, xValue.get()+150F, yValue.get()+90F, 20F)}
         RenderUtils.drawCircleRect(xValue.get(),yValue.get()+10F, xValue.get()+150F, yValue.get()+90F, 7f,Color(r.get(),g.get(),b.get(),a.get()).rgb)
         Fonts.flux.drawString("F", xValue.get()+5F, yValue.get()+19F, -1)
         Fonts.font40.drawString("Play Time: ${DATE_FORMAT.format(Date(System.currentTimeMillis() - Recorder.startTime - 8000L * 3600L))}", xValue.get()+20F, yValue.get()+18F, -1)
