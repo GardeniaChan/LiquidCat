@@ -24,6 +24,7 @@ import net.minecraft.util.IChatComponent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.input.Mouse;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -61,6 +62,8 @@ public abstract class MixinGuiScreen {
 
     @Shadow
     protected abstract void drawHoveringText(List<String> textLines, int x, int y);
+
+
 
     @Inject(method = "drawWorldBackground", at = @At("HEAD"))
     private void drawWorldBackground(final CallbackInfo callbackInfo) {

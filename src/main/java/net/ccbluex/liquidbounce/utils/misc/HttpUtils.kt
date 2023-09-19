@@ -7,10 +7,13 @@
 package net.ccbluex.liquidbounce.utils.misc
 
 import org.apache.commons.io.FileUtils
+import java.awt.Desktop
 import java.io.File
 import java.io.IOException
 import java.io.InputStream
+import java.lang.Exception
 import java.net.HttpURLConnection
+import java.net.URI
 import java.net.URL
 
 /**
@@ -68,4 +71,13 @@ object HttpUtils {
     @JvmStatic
     fun download(url: String, file: File) = FileUtils.copyInputStreamToFile(make(url, "GET").inputStream, file)
 
+    @Throws(Exception::class)
+    @JvmStatic
+    fun browse(url: String) {
+        val desktop = Desktop.getDesktop()
+        if (Desktop.isDesktopSupported() && desktop.isSupported(Desktop.Action.BROWSE)) {
+            var uri = URI(url)
+            desktop.browse(uri)
+        }
+    }
 }

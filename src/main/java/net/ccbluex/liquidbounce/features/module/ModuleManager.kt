@@ -38,6 +38,8 @@ class ModuleManager : Listenable {
         ClientUtils.getLogger().info("[ModuleManager] Loading modules...")
 
         registerModules(
+                effectnew::class.java,
+                jumpfix::class.java,
                 PacketFix::class.java,
                 NFastBow::class.java,
                 TargetStrafe::class.java,
