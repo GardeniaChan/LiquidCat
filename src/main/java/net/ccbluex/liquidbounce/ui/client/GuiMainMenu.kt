@@ -32,18 +32,12 @@ class GuiMainMenu : GuiScreen(), GuiYesNoCallback {
         val defaultHeight = height / 4 + 48
 
 
-
-        //buttonList.add(GuiButton(100, width / 2 - 100, defaultHeight + 24, 98, 20, "AltManager"))
-        //buttonList.add(GuiButton(103, width / 2 + 2, defaultHeight + 24, 98, 20, "Mods"))
-        //buttonList.add(GuiButton(101, width / 2 - 100, defaultHeight + 24 * 2, 98, 20, "Server Status"))
-        //buttonList.add(GuiButton(102, width / 2 + 2, defaultHeight + 24 * 2, 98, 20, "Background"))
-
-        buttonList.add(GuiButton(1, width / 2 - 250, defaultHeight - 24 * 4, 98, 35, I18n.format("menu.singleplayer")))
-        buttonList.add(GuiButton(2, width / 2 - 250, defaultHeight - 24 * 2, 98, 35, I18n.format("menu.multiplayer")))
+        buttonList.add(GuiButton(1, width / 2 - 250, defaultHeight - 24 * 4, 98, 30, I18n.format("menu.singleplayer")))
+        buttonList.add(GuiButton(2, width / 2 - 250, defaultHeight - 24 * 2 - 12, 98, 30, I18n.format("menu.multiplayer")))
 
         //buttonList.add(GuiButton(108, width / 2 - 100, defaultHeight + 24 * 3, "Contributors"))
-        buttonList.add(GuiButton(0, width / 2 - 250, defaultHeight, 98, 35, I18n.format("menu.options")))
-        buttonList.add(GuiButton(4, width / 2 - 250, defaultHeight + 24 * 2, 98, 35, I18n.format("menu.quit")))
+        buttonList.add(GuiButton(0, width / 2 - 250, defaultHeight - 24, 98, 30, I18n.format("menu.options")))
+        buttonList.add(GuiButton(4, width / 2 - 250, defaultHeight + 12, 98, 30, I18n.format("menu.quit")))
 
         super.initGui()
     }
@@ -55,7 +49,7 @@ class GuiMainMenu : GuiScreen(), GuiYesNoCallback {
         }
         drawBackground(0)
         GL11.glPushMatrix()
-        Fonts.fontBold180.drawCenteredString(CMain.Name, width / 2F, height / 8F - 20F,Color(67,218,253).rgb, false)
+       // Fonts.fontBold180.drawCenteredString(CMain.Name, width / 2F, height / 8F - 20F,Color(67,218,253).rgb, false)
         Fonts.font40.drawStringWithShadow("${CMain.Name} build ${CMain.Ver}", 2F, height - 12F, -1)
         //Fonts.font40.drawStringWithShadow(creditInfo, width - 3F - Fonts.font40.getStringWidth(creditInfo), height - 12F, -1)
         GlStateManager.disableAlpha()
@@ -82,7 +76,7 @@ class GuiMainMenu : GuiScreen(), GuiYesNoCallback {
             if (isMouseHover(staticX + 240F + 40F * index, 0F, staticX+ 240F + 40F * (index + 1),20F, mouseX, mouseY))
                 when (index) {
                     0 -> HttpUtils.browse("https://github.com/GardeniaChan/LiquidCat")
-                    1 -> HttpUtils.browse("")
+                    1 -> HttpUtils.browse("https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=X4o2s15STgC9OBzO_954IVcJazKED6XS&authKey=BSueO6oKpHTYP7i3FQy4A2wdqfN%2FToQYkm6BlImFWUd7jGZvDPIvNT1KsX7k5ogJ&noverify=0&group_code=973202790")
                     2 -> HttpUtils.browse("")
                     3 -> HttpUtils.browse("")
                 }

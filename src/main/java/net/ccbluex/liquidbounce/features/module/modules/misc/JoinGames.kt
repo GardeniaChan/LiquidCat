@@ -5,6 +5,7 @@ import net.ccbluex.liquidbounce.event.UpdateEvent
 import net.ccbluex.liquidbounce.features.module.ModuleCategory
 import net.ccbluex.liquidbounce.features.module.ModuleInfo
 import net.ccbluex.liquidbounce.features.module.Module
+import net.ccbluex.liquidbounce.utils.ClientUtils
 import net.ccbluex.liquidbounce.value.ListValue
 
 @ModuleInfo("JoinGame",description = "//",category = ModuleCategory.MISC)
@@ -16,7 +17,8 @@ class JoinGames : Module() {
         when(ModeValue.get().toLowerCase()) {
             "32v32" -> mc.thePlayer.sendChatMessage("/game bwxp-32")
         }
-
+        ClientUtils.displayAlert("111111111")
         state = false
+
     }
 }
