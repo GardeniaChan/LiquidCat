@@ -38,6 +38,7 @@ class ModuleManager : Listenable {
         ClientUtils.getLogger().info("[ModuleManager] Loading modules...")
 
         registerModules(
+                MoonWalk::class.java,
                 effectnew::class.java,
                 jumpfix::class.java,
                 PacketFix::class.java,

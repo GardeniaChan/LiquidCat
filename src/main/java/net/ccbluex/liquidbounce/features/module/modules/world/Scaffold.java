@@ -51,7 +51,7 @@ public class Scaffold extends Module {
      */
 
     // Mode
-    public final ListValue modeValue = new ListValue("Mode", new String[]{"Normal", "Rewinside", "Expand"}, "Expand");
+    public final ListValue modeValue = new ListValue("Mode", new String[]{"Normal", "Rewinside", "Expand","Safe"}, "Expand");
 
     // Delay
     private final IntegerValue maxDelayValue = new IntegerValue("MaxDelay", 0, 0, 1000) {
@@ -714,7 +714,7 @@ public class Scaffold extends Module {
 
         if (placeRotation == null) return false;
         if ((!rotationsValue.get().equals("None"))) {
-            Rotation rotation = new Rotation(0, 0);
+            Rotation rotation = new Rotation(0,0);
 
             switch (rotationsValue.get().toLowerCase()) {
                 case "aac": {

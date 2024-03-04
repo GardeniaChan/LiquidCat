@@ -1,5 +1,6 @@
 package net.ccbluex.liquidbounce.features.module.modules.render
 
+
 import net.ccbluex.liquidbounce.event.*
 import net.ccbluex.liquidbounce.features.module.Module
 import net.ccbluex.liquidbounce.features.module.ModuleCategory
@@ -16,8 +17,6 @@ import net.minecraft.client.renderer.GlStateManager.*
 import net.minecraft.entity.EntityLivingBase
 import net.minecraft.network.handshake.client.C00Handshake
 import net.minecraft.network.play.server.S02PacketChat
-
-
 import java.awt.Color
 import java.text.SimpleDateFormat
 import java.util.*
@@ -25,8 +24,8 @@ import java.util.*
 @ModuleInfo(name = "SessionInfo", category = ModuleCategory.RENDER, description="About game info",array = false)
 class SessionInfo : Module() {
     //private val blurValue = BoolValue("blur", true)
-    private val xValue = FloatValue("xValue", 100f, 0f, 500f)
-    private val yValue = FloatValue("yValue", 100f, 0f, 500f)
+    private val xValue = FloatValue("xValue", 0f, 0f, 500f)
+    private val yValue = FloatValue("yValue", 0f, 0f, 500f)
     private val blurValue = BoolValue("Blue",false)
     private val r = IntegerValue("R", 0, 0, 255)
     private val g = IntegerValue("G", 0, 0, 255)
@@ -42,8 +41,8 @@ class SessionInfo : Module() {
     private fun onRender2D(event: Render2DEvent){
         pushMatrix()
         if(blurValue.get()) {
-        BlurUtils.blurArea(xValue.get(),yValue.get()+10F, xValue.get()+150F, yValue.get()+90F, 20F)}
-        RenderUtils.drawCircleRect(xValue.get(),yValue.get()+10F, xValue.get()+150F, yValue.get()+90F, 7f,Color(r.get(),g.get(),b.get(),a.get()).rgb)
+        BlurUtils.blurArea(xValue.get(),yValue.get()+10F, xValue.get()+150F, yValue.get()+110F, 20F)}
+        RenderUtils.drawCircleRect(xValue.get(),yValue.get()+10F, xValue.get()+150F, yValue.get()+110F, 7f,Color(r.get(),g.get(),b.get(),a.get()).rgb)
         Fonts.flux.drawString("F", xValue.get()+5F, yValue.get()+19F, -1)
         Fonts.font40.drawString("Play Time: ${DATE_FORMAT.format(Date(System.currentTimeMillis() - Recorder.startTime - 8000L * 3600L))}", xValue.get()+20F, yValue.get()+18F, -1)
         Fonts.flux.drawString("G", xValue.get()+5F, yValue.get()+39F, -1)
@@ -52,6 +51,7 @@ class SessionInfo : Module() {
         Fonts.font40.drawString("Win / Total: $win / $totalPlayed", xValue.get()+20F, yValue.get()+58F, -1)
         Fonts.flux.drawString("I", xValue.get()+5F, yValue.get()+79F, -1)
         Fonts.font40.drawString("Speed:"+MovementUtils.getBlockSpeed(mc.thePlayer)+"/bps", xValue.get()+20F, yValue.get()+78F, -1)
+        Fonts.font40.drawString("Head:"+ "RotationYaw:" + mc.thePlayer.rotationYaw + " | RotationPitch:" + mc.thePlayer.rotationPitch, xValue.get()+20F, yValue.get()+98F, -1)
         popMatrix()
     }
     @EventTarget
